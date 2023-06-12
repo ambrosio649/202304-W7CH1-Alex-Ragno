@@ -21,7 +21,6 @@ app.use(express.json());
 app.use((_req, _res, next) => {
   debug('Soy un middleware');
   next();
-  // TEMP next(new Error('Error'));
 });
 
 app.get('/', (req, res) => {
