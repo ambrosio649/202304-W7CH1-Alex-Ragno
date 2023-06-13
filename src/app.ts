@@ -3,6 +3,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import createDebug from 'debug';
 import { monsterRouter } from './routers/monster.router.js';
+import { filmRouter } from './routers/film.router.js';
 import { errorHandler } from './middleware/error.js';
 const debug = createDebug('W6:App');
 
@@ -28,5 +29,6 @@ app.get('/', (req, res) => {
 });
 
 app.use('/monster', monsterRouter);
+app.use('/film', filmRouter);
 
 app.use(errorHandler);

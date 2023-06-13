@@ -4,6 +4,10 @@ import { MonsterRepo } from '../repository/monster.repository.js';
 import { Repo } from '../repository/repo.js';
 import { Monster } from '../entities/monster.js';
 
+import createDebug from 'debug';
+const debug = createDebug('W6:MonsterRouter');
+
+debug('Executed');
 const repo: Repo<Monster> = new MonsterRepo();
 const controller = new MonsterController(repo);
 export const monsterRouter = createRouter();

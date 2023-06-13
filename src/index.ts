@@ -1,15 +1,21 @@
 import http from 'http';
 import { app } from './app.js';
-import * as dotenv from 'dotenv';
 import createDebug from 'debug';
+import { dbConnect } from './db/db.connect.js';
 const debug = createDebug('W6');
 
-dotenv.config();
 const PORT = process.env.PORT || 6555;
 
 const server = http.createServer(app);
 
-server.listen(PORT);
+dbConnect()
+  .then((mongoose) => {
+    server.listen(PORT);
+    debug('Connected to db:', mongoose.connection.db.databaseName); // Sirve para ver el nombre de la base de datos
+  })
+  .catch((error) => {
+    server.emit('error', error);
+  });
 
 server.on('listening', () => {
   debug('Listening on port ' + PORT);
