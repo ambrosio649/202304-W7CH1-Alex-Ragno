@@ -10,7 +10,7 @@ const file = './data.json';
 const createID = (): Monster['id'] =>
   Math.trunc(Math.random() * 1_000_000).toString();
 
-export class MonsterRepo implements Repo<Monster> {
+export class MonsterRepo implements Omit<Repo<Monster>, 'search'> {
   constructor() {
     debug('Instantiated');
   }

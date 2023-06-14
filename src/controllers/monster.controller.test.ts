@@ -1,16 +1,17 @@
 import { NextFunction, Request, Response } from 'express';
-import { MonsterRepo } from '../repository/monster.repository';
-import { MonsterController } from './monster.controller';
+import { MonsterController } from './monster.controller.js';
+import { Monster } from '../entities/monster.js';
+import { Repo } from '../repository/repo.js';
 
 describe('Given MonsterController class', () => {
   describe('When it is instantiated', () => {
-    const mockRepo: MonsterRepo = {
+    const mockRepo = {
       query: jest.fn(),
       queryById: jest.fn(),
       create: jest.fn(),
       update: jest.fn(),
       delete: jest.fn(),
-    };
+    } as unknown as Repo<Monster>;
     const req = {
       params: { id: 1 },
     } as unknown as Request;

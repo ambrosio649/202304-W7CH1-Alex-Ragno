@@ -7,6 +7,7 @@ describe('Given FilmController class', () => {
     const mockRepo: FilmRepo = {
       query: jest.fn(),
       queryById: jest.fn(),
+      search: jest.fn(),
       create: jest.fn(),
       update: jest.fn(),
       delete: jest.fn(),

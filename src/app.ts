@@ -5,6 +5,7 @@ import createDebug from 'debug';
 import { monsterRouter } from './routers/monster.router.js';
 import { filmRouter } from './routers/film.router.js';
 import { errorHandler } from './middleware/error.js';
+import { userRouter } from './routers/user.router.js';
 const debug = createDebug('W6:App');
 
 export const app = express();
@@ -24,11 +25,14 @@ app.use((_req, _res, next) => {
   next();
 });
 
+app.use(express.static('public'));
+
 app.get('/', (req, res) => {
   res.send('Hello Express!');
 });
 
 app.use('/monster', monsterRouter);
 app.use('/film', filmRouter);
+app.use('/user', userRouter);
 
 app.use(errorHandler);

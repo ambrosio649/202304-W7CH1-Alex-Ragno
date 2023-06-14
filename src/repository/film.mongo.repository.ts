@@ -25,6 +25,17 @@ export class FilmRepo implements Repo<Film> {
     return result;
   }
 
+  async search({
+    key,
+    value,
+  }: {
+    key: string;
+    value: unknown;
+  }): Promise<Film[]> {
+    const result = await FilmModel.find({ [key]: value }).exec();
+    return result;
+  }
+
   async create(data: Omit<Film, 'id'>): Promise<Film> {
     const newFilm = await FilmModel.create(data);
 

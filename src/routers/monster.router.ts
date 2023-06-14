@@ -8,7 +8,7 @@ import createDebug from 'debug';
 const debug = createDebug('W6:MonsterRouter');
 
 debug('Executed');
-const repo: Repo<Monster> = new MonsterRepo();
+const repo: Repo<Monster> = new MonsterRepo() as Repo<Monster>;
 const controller = new MonsterController(repo);
 export const monsterRouter = createRouter();
 
