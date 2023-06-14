@@ -10,7 +10,7 @@ export default {
     'src/db/db.connect.ts',
     'src/app.ts',
     'src/config.ts',
-    'src/routers/sneaker.router.ts',
+    'src/routers/monster.router.ts',
     'src/routers/film.router.ts',
   ],
 };
