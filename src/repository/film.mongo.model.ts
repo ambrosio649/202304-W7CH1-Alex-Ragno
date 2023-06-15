@@ -11,6 +11,10 @@ const FilmSchema = new Schema<Film>({
     type: String,
     required: true,
   },
+  owner: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+  },
 });
 
 FilmSchema.set('toJSON', {
