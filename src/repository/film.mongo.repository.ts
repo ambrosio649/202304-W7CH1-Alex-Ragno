@@ -38,7 +38,6 @@ export class FilmRepo implements Repo<Film> {
 
   async create(data: Omit<Film, 'id'>): Promise<Film> {
     const newFilm = await FilmModel.create(data);
-
     return newFilm;
   }
 
