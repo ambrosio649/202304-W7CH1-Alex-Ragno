@@ -9,7 +9,7 @@ describe('Given the ', () => {
     const mockRepo: UserRepo = {
       create: jest.fn(),
       search: jest.fn(),
-    } as UserRepo;
+    } as unknown as UserRepo;
     const res = {
       send: jest.fn(),
       status: jest.fn(),

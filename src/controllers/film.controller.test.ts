@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import { FilmRepo } from '../repository/film.mongo.repository';
 import { FilmController } from './film.controller';
+import { UserRepo } from '../repository/user.mongo.repository';
 
 describe('Given FilmController class', () => {
   describe('When it is instantiated', () => {
@@ -19,7 +20,7 @@ describe('Given FilmController class', () => {
       send: jest.fn(),
     } as unknown as Response;
     const next = jest.fn() as NextFunction;
-    const controller = new FilmController(mockRepo);
+    const controller = new FilmController(mockRepo, new UserRepo());
     test('Then method getAll should be used', async () => {
       await controller.getAll(req, res, next);
       expect(res.send).toHaveBeenCalled();

@@ -33,6 +33,12 @@ describe('Given FilmRepo Class', () => {
       const mockFilmData: Omit<Film, 'id'> = {
         title: 'Juan and Marco',
         director: 'Juan',
+        owner: {
+          id: '',
+          userName: '',
+          email: '',
+          password: '',
+        },
       };
       FilmModel.create = jest.fn().mockReturnValueOnce({});
 
